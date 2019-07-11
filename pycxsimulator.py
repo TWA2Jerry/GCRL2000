@@ -27,9 +27,9 @@
 ## matplotlib.use('TkAgg')
 
 import pylab as PL
-import ttk
-from Tkinter import *
-from ttk import Notebook
+from tkinter import ttk
+from tkinter import *
+from tkinter.ttk import Notebook
 
 
 class GUI:
