@@ -15,7 +15,7 @@ def update():
 
 def observe():
 	global x, xarray
-	xarray.append(x)
+	xarray.append(x+pylab.uniform(-0.05, 0.05))
 	
 def lists():
 	global x, xarray
