@@ -15,13 +15,12 @@ def iterate():
 def lists(tau):
 	global x, xarray
 	varray = []
-	xtarray = []
-	
+	xtarray = []	
 	i = 0
 	while(i < len(xarray)-1):
 		v = [xarray[i]]
 		varray.append(v)
-		xtarray.append(xarray[i+1])
+		xtarray.append(xarray[i+1]+pylab.uniform(-0.05, 0.05))
 		i += 1
 	return varray, xtarray
 
@@ -38,7 +37,7 @@ print(c)
 print(b)
 
 
-reg = linear_model.Lasso()
+reg = linear_model.Lasso(alpha=0.0000001, fit_intercept = False)
 d = reg.fit(c,b)
 y_pred = reg.predict(c)
 print(d.coef_)
