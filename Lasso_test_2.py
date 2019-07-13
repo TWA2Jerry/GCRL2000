@@ -26,21 +26,18 @@ def lists(tau):
 
 init()
 print("Initialisation done!")
-for t in range(100000):
+for t in range(10000):
 	iterate()
 
 print("Iteration done!")
 a,b = lists(1)
 poly = PolynomialFeatures(degree = 2, include_bias = False)
 c = poly.fit_transform(a)
-print(c)
-print(b)
-
 
 reg = linear_model.Lasso(alpha=0.0001, fit_intercept = True)
 d = reg.fit(c,b)
 y_pred = reg.predict(c)
 print(d.coef_)
-pylab.plot(a[0:],b, "ro")
-pylab.plot(a[0:], y_pred, "b-")
+pylab.plot([i[0] for i in a],b, "ro")
+pylab.plot([i[0] for i in a], y_pred, "bo")
 pylab.show()
