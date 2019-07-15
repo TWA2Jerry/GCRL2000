@@ -27,10 +27,7 @@
 ## matplotlib.use('TkAgg')
 
 import pylab as PL
-<<<<<<< HEAD
 from tkinter import ttk
-=======
->>>>>>> 119455c96a2211f7f4d4df734660939cc33732a7
 from tkinter import *
 from tkinter.ttk import Notebook
 
