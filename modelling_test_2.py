@@ -37,7 +37,8 @@ poly = PolynomialFeatures(degree = 2, include_bias = False)
 c = poly.fit_transform(a)
 reg = linear_model.Lasso(alpha = 0.001, fit_intercept = False)
 d = reg.fit(c,b)
-reg.coef_[0] = 0.0
+for i in range(1, len(reg.coef_)):
+	reg.coef_[i] = 0.0
 y_pred = reg.predict(c)
 print(reg.coef_)
 pylab.plot(ft, p, "g-", label = "Real")
