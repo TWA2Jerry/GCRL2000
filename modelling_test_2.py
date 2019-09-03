@@ -37,10 +37,21 @@ poly = PolynomialFeatures(degree = 2, include_bias = False)
 c = poly.fit_transform(a)
 reg = linear_model.Lasso(alpha = 0.001, fit_intercept = False)
 d = reg.fit(c,b)
+
+"""
+This is to force the price of BHP itself to go to 0
+reg.coef_[0] = 0
+"""
+
+"""
+This is to force everything except the price of BHP to go to 0
+for i in range(1, len(reg.coef_)):
+	reg.coef_[i] = 0
+"""
 y_pred = reg.predict(c)
-print(d.coef_)
+print(reg.coef_)
 pylab.plot(ft, p, "g-", label = "Real")
 pylab.plot(t, y_pred, "b--", label = "Predicted")
 pylab.legend()
-pylab.ylim(min(p)-10, max(p)+10)
+pylab.ylim(0,60)
 pylab.show()			
